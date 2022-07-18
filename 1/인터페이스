@@ -1,0 +1,46 @@
+소프트웨어를 규격화된 모듈로 만들고, 인터페이스가 맞는 모듈을 조립하듯이 응용프로그램을 작성
+
+추상클래스와 차이점
+    주로 제공할 기능을 정의하는데 사용한다.
+    인터페이스는 오로지 추상메소드와 상수만을 포함할 수 있다
+
+interface PhoneInterface {
+    final int TIMEOUT = 1000;
+    void sendCall();
+    void receiveCall();
+    dafault void printLogo() {
+        System.out.println("Phone");
+    }
+}
+
+class Calc {
+    public int calculate(int x, int y)
+    {
+        return x + y;
+    }
+}
+class SmartPhone extends Calc implements PhoneInterface {
+    @java.lang.Override
+    public void sendCall() {
+        System.out.println("따르릉~!~");
+    }
+
+    @java.lang.Override
+    public void receiveCall() {
+        System.out.println("전화왔어요");
+    }
+
+    publc void schedule() {
+        System.out.println("일정관리합니다.");
+    }
+}
+
+public class InterfaceEx {
+    public static void main(String[] args){
+        SmartPhone phone = new SmartPhone();
+        phone.printLogo();
+        phone.sendCall();
+        System.out.println("3과 5를 더하면 " + phone.calculate(3, 5));
+        phone.schedule();
+    }
+}

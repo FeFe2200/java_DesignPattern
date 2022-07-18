@@ -1,0 +1,28 @@
+c언어에서의 형변환이라고 이해
+자바에서는 클래스 형변환에 대해 이해 필요
+업 캐스팅 : 부모클래스 자료형에 자식클래스의 인스턴스가 대입
+다운 캐스팅 : 자식클래스 자료형에 부모클래스의 인스턴스가 대입
+
+업 캐스팅은 문제가 없지만 다운캐스팅은 문제가 발생할수 있다
+자식클래스는 부모클래스의 기존 함수보다 추가되는 함수 등 자식클래스의 범위가 더 넓다. 고로 명시적으로 형변환을 해주어야한다.
+
+public class Main {
+    public static void main(String[] args) {
+        Shape r = new Rectangle(0, 0, 10, 20);
+        Circle c = (Circle) new Shape(0, 0, 9, 9);
+        System.out.println(r.getArea());
+        System.out.println(c.getArea());
+    }
+}
+
+하지만 위의 경우에서 C에서 오류가 발생하는데 역시 범위가 더 넓어, 메소드가 다를수 있기 떄운에 다운캐스팅은 다음과 같이 사용한다.
+
+public class Main {
+    public static void main(String[] args) {
+        Shape r = new Rectangle(0, 0, 10, 20);
+        Shape sc = new Circle(0, 0, 9, 9);
+        Circle c = (Circle) sc;
+        System.out.println(r.getArea());
+        System.out.println(c.getArea());
+    }
+}
