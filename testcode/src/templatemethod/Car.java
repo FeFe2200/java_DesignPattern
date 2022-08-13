@@ -1,12 +1,18 @@
 package templatemethod;
 
 public abstract class Car {
-    abstract void startCar();
+    void startCar() { //hook메서드
+        System.out.println("시동을 켭니다");
+    }
+
     abstract void drive();
     abstract void stop();
-    abstract void turnOff();
 
-    void run(){
+    void turnOff() { //hook메서드
+        System.out.println("시동을 끕니다.");
+    }
+
+    final void run(){ // 템플릿 메서드
         startCar();
         drive();
         stop();
