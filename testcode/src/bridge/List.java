@@ -2,6 +2,7 @@ package bridge;
 
 public class List<T> {
     AbstractList<T> impl;
+
     public List(AbstractList<T> list) {
         impl = list;
     }
